@@ -6,7 +6,7 @@
 /*   By: ohortal- <ohortal-@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 11:43:44 by ohortal-          #+#    #+#             */
-/*   Updated: 2023/04/20 10:51:15 by ohortal-         ###   ########.fr       */
+/*   Updated: 2023/05/08 10:53:35 by ohortal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	ft_printf_codif(char c, va_list args)
 int	ft_printf(const char *str, ...)
 {
 	int		i[2];
-	int		flag;
+	int		count;
 	va_list	argv;
 
 	va_start(argv, str);
@@ -87,10 +87,10 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i[0]] == '%')
 		{
-			flag = ft_printf_codif(str[++i[0]], argv);
-			if (flag < 0)
+			count = ft_printf_codif(str[++i[0]], argv);
+			if (count < 0)
 				return (-1);
-			i[1] += flag;
+			i[1] += count;
 		}
 		else
 		{
